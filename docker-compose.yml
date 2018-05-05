@@ -1,0 +1,15 @@
+version: '2'
+services:
+  rabbitmq:
+    image: your-repo/this-image-name:latest
+    restart: always
+    environment:
+      RABBITMQ_VM_MEMORY_HIGH_WATERMARK: "1024MiB" # Set memory limit if needed
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "ADMIN_PASS"
+      RABBITMQ_USER: "user"
+      RABBITMQ_PASSWORD: "USER_PASS"
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+    ports:
+      - 5672:5672 # Expose UI if needed
